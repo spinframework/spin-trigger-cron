@@ -9,6 +9,7 @@ rust-version = "1.73"
 version = "0.1.0"
 authors = ["Fermyon Engineering <engineering@fermyon.com>"]
 edition = "2021"
+rust-version = "1.82"
 
 [workspace]
 members = ["sdk", "sdk/macro"]
@@ -20,12 +21,14 @@ anyhow = "1.0.75"
 async-trait = "0.1"
 clap = { version = "3.1.15", features = ["derive", "env"] }
 serde = "1.0"
-spin-trigger = { git = "https://github.com/fermyon/spin" }
+spin-factors = { git = "https://github.com/spinframework/spin", tag = "v3.2.0" }
+spin-runtime-factors = { git = "https://github.com/spinframework/spin", tag = "v3.2.0" }
+spin-trigger = { git = "https://github.com/spinframework/spin", tag = "v3.2.0" }
 tokio = { version = "1.37", features = ["full"] }
-tokio-cron-scheduler = "0.9.4"
+tokio-cron-scheduler = "0.13"
 tracing = { version = "0.1", features = ["log"] }
 tracing-subscriber = { version = "0.3.7", features = ["env-filter"] }
-wasmtime = { version = "22.0.0" }
+wasmtime = { version = "29.0.1" }
 
 [target.'cfg(target_os = "linux")'.dependencies]
 # This needs to be an explicit dependency to enable

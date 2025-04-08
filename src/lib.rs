@@ -1,5 +1,6 @@
 use anyhow::{anyhow, Context, Result};
 use serde::{Deserialize, Serialize};
+use spin_factors::RuntimeFactors;
 use spin_trigger::{cli::NoCliArgs, App, Trigger, TriggerApp};
 use std::{
     sync::Arc,
@@ -39,7 +40,7 @@ struct TriggerMetadata {
     r#type: String,
 }
 
-impl Trigger for CronTrigger {
+impl<F: RuntimeFactors> Trigger<F> for CronTrigger {
     const TYPE: &'static str = "cron";
 
     type CliArgs = NoCliArgs;
@@ -48,7 +49,7 @@ impl Trigger for CronTrigger {
 
     fn new(_cli_args: Self::CliArgs, app: &App) -> anyhow::Result<Self> {
         let cron_components = app
-            .trigger_configs::<CronTriggerConfig>(Self::TYPE)?
+            .trigger_configs::<CronTriggerConfig>(<Self as Trigger<F>>::TYPE)?
             .into_iter()
             .map(|(_, config)| Component {
                 id: config.component.clone(),
@@ -60,7 +61,7 @@ impl Trigger for CronTrigger {
 
     fn run(
         self,
-        trigger_app: TriggerApp<Self>,
+        trigger_app: TriggerApp<Self, F>,
     ) -> impl std::future::Future<Output = anyhow::Result<()>> + Send {
         let components = self.cron_components;
         Self::init_cron_scheduler(trigger_app.into(), components)
@@ -68,8 +69,8 @@ impl Trigger for CronTrigger {
 }
 
 impl CronTrigger {
-    async fn init_cron_scheduler(
-        engine: Arc<TriggerApp<Self>>,
+    async fn init_cron_scheduler<F: RuntimeFactors>(
+        engine: Arc<TriggerApp<Self, F>>,
         components: Vec<Component>,
     ) -> anyhow::Result<()> {
         let mut sched = JobScheduler::new().await?;
@@ -115,13 +116,13 @@ impl CronTrigger {
     }
 }
 
-pub struct CronEventProcessor {
-    trigger_app: Arc<TriggerApp<CronTrigger>>,
+pub struct CronEventProcessor<F: RuntimeFactors> {
+    trigger_app: Arc<TriggerApp<CronTrigger, F>>,
     component: Component,
 }
 
-impl CronEventProcessor {
-    fn new(trigger_app: Arc<TriggerApp<CronTrigger>>, component: Component) -> Self {
+impl<F: RuntimeFactors> CronEventProcessor<F> {
+    fn new(trigger_app: Arc<TriggerApp<CronTrigger, F>>, component: Component) -> Self {
         Self {
             trigger_app,
             component,
