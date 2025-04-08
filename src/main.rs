@@ -1,9 +1,10 @@
 use clap::Parser;
+use spin_runtime_factors::FactorsBuilder;
 use spin_trigger::cli::FactorsTriggerCommand;
 use std::io::IsTerminal;
 use trigger_cron::CronTrigger;
 
-type Command = FactorsTriggerCommand<CronTrigger>;
+type Command = FactorsTriggerCommand<CronTrigger, FactorsBuilder>;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
