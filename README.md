@@ -3,7 +3,7 @@
 ## Install from release
 
 ```bash
-spin plugins install --url https://github.com/fermyon/spin-trigger-cron/releases/download/canary/trigger-cron.json
+spin plugins install --url https://github.com/spinframework/spin-trigger-cron/releases/download/canary/trigger-cron.json
 ```
 
 ## Build From source
@@ -30,7 +30,7 @@ spin build --up
 You can install the template using the following command:
 
 ```bash
-spin templates install --git https://github.com/fermyon/spin-trigger-cron
+spin templates install --git https://github.com/spinframework/spin-trigger-cron
 ```
 
 Once the template is installed, you can create a new application using:

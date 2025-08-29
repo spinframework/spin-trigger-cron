@@ -21,14 +21,14 @@ anyhow = "1.0.75"
 async-trait = "0.1"
 clap = { version = "3.1.15", features = ["derive", "env"] }
 serde = "1.0"
-spin-factors = { git = "https://github.com/spinframework/spin", tag = "v3.2.0" }
-spin-runtime-factors = { git = "https://github.com/spinframework/spin", tag = "v3.2.0" }
-spin-trigger = { git = "https://github.com/spinframework/spin", tag = "v3.2.0" }
+spin-factors = { git = "https://github.com/spinframework/spin", tag = "v3.4.1" }
+spin-runtime-factors = { git = "https://github.com/spinframework/spin", tag = "v3.4.1" }
+spin-trigger = { git = "https://github.com/spinframework/spin", tag = "v3.4.1" }
 tokio = { version = "1.37", features = ["full"] }
 tokio-cron-scheduler = "0.13"
 tracing = { version = "0.1", features = ["log"] }
 tracing-subscriber = { version = "0.3.7", features = ["env-filter"] }
-wasmtime = { version = "29.0.1" }
+wasmtime = { version = "36.0.2" }
 
 [target.'cfg(target_os = "linux")'.dependencies]
 # This needs to be an explicit dependency to enable
@@ -36,4 +36,4 @@ wasmtime = { version = "29.0.1" }
 openssl = { version = "0.10" }
 
 [workspace.dependencies]
-wit-bindgen = "0.16.0"
+wit-bindgen = "0.43.0"

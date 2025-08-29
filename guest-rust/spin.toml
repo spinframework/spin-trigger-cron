@@ -11,9 +11,9 @@ component = "every2seconds"
 cron_expression = "1/2 * * * * *"
 
 [component.every2seconds]
-source = "target/wasm32-wasi/release/guest.wasm"
+source = "target/wasm32-wasip2/release/guest.wasm"
 [component.every2seconds.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip2 --release"
 [component.every2seconds.variables]
 something = "2s"
 
@@ -22,8 +22,8 @@ component = "every4seconds"
 cron_expression = "1/4 * * * * *"
 
 [component.every4seconds]
-source = "target/wasm32-wasi/release/guest.wasm"
+source = "target/wasm32-wasip2/release/guest.wasm"
 [component.every4seconds.build]
-command = "cargo build --target wasm32-wasi --release"
+command = "cargo build --target wasm32-wasip2 --release"
 [component.every4seconds.variables]
 something = "4s"
