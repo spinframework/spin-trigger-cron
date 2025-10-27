@@ -12,7 +12,7 @@ use tokio_cron_scheduler::{Job, JobScheduler};
 wasmtime::component::bindgen!({
     world: "spin-cron",
     path: "cron.wit",
-    async: true
+    exports: { default: async },
 });
 
 use fermyon::spin_cron::cron_types as cron;

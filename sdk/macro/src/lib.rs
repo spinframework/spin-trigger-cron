@@ -41,13 +41,11 @@ fn preamble() -> proc_macro2::TokenStream {
             world: #world,
             path: #WIT_PATH,
             runtime_path: "::spin_cron_sdk::wit_bindgen::rt",
-            exports: {
-                world: Cron
-            },
             with: {
                 "fermyon:spin-cron/cron-types@2.0.0": ::spin_cron_sdk,
             }
         });
         pub struct Cron;
+        export!(Cron);
     }
 }
