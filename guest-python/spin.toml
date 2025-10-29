@@ -2,8 +2,7 @@ spin_manifest_version = 2
 
 [application]
 name = "cron-sampl-py"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
-description = ""
+authors = ["The Spin authors"]
 version = "0.1.0"
 
 [[trigger.cron]]

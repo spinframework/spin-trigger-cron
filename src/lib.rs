@@ -34,12 +34,6 @@ struct Component {
     pub cron_expression: String,
 }
 
-#[derive(Clone, Debug, Default, Deserialize, Serialize)]
-#[serde(deny_unknown_fields)]
-struct TriggerMetadata {
-    r#type: String,
-}
-
 impl<F: RuntimeFactors> Trigger<F> for CronTrigger {
     const TYPE: &'static str = "cron";
 

@@ -1,15 +1,15 @@
 [package]
 name = "guest"
 version = "0.1.0"
-authors = ["Karthik Ganeshram <karthik.ganeshram@fermyon.com>"]
+authors = ["The Spin authors"]
 edition = "2021"
-rust-version = "1.71"
+rust-version = "1.87"
 
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
-spin-sdk = "5.0.0"
+spin-sdk = "5.1.0"
 spin-cron-sdk = { path = "../sdk" }
 
 [workspace]

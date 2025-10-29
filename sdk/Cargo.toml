@@ -3,13 +3,13 @@ name = "spin-cron-sdk"
 version = { workspace = true }
 authors = { workspace = true }
 edition = { workspace = true }
-rust-version = "1.71"
+rust-version = { workspace = true }
 include = ["../cron.wit"]
 
 [lib]
 name = "spin_cron_sdk"
 
 [dependencies]
-spin-executor = "5.0.0"
+spin-executor = "5.1.0"
 spin-cron-macro = { path = "macro" }
 wit-bindgen = { workspace = true }

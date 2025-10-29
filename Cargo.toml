@@ -3,32 +3,30 @@ name = "trigger-cron"
 version = { workspace = true }
 authors = { workspace = true }
 edition = { workspace = true }
-rust-version = "1.73"
+rust-version = { workspace = true }
 
 [workspace.package]
-version = "0.2.0"
-authors = ["Fermyon Engineering <engineering@fermyon.com>"]
+version = "0.3.0"
+authors = ["The Spin authors"]
 edition = "2021"
-rust-version = "1.82"
+rust-version = "1.87"
 
 [workspace]
 members = ["sdk", "sdk/macro"]
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 anyhow = "1.0.75"
 async-trait = "0.1"
 clap = { version = "3.1.15", features = ["derive", "env"] }
 serde = "1.0"
-spin-factors = { git = "https://github.com/spinframework/spin", tag = "v3.4.1" }
-spin-runtime-factors = { git = "https://github.com/spinframework/spin", tag = "v3.4.1" }
-spin-trigger = { git = "https://github.com/spinframework/spin", tag = "v3.4.1" }
+spin-factors = { git = "https://github.com/spinframework/spin", tag = "v3.5.0" }
+spin-runtime-factors = { git = "https://github.com/spinframework/spin", tag = "v3.5.0" }
+spin-trigger = { git = "https://github.com/spinframework/spin", tag = "v3.5.0" }
 tokio = { version = "1.37", features = ["full"] }
 tokio-cron-scheduler = "0.13"
 tracing = { version = "0.1", features = ["log"] }
 tracing-subscriber = { version = "0.3.7", features = ["env-filter"] }
-wasmtime = { version = "36.0.2" }
+wasmtime = { version = "37.0.1" }
 
 [target.'cfg(target_os = "linux")'.dependencies]
 # This needs to be an explicit dependency to enable
