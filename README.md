@@ -1,5 +1,10 @@
 # Experimental Cron trigger for Spin
 
+> [!IMPORTANT]
+> **This repository has been archived.**
+>
+> This repository has been consolidated into the repository at [spinframework/spin-trigger-plugins](https://github.com/spinframework/spin-trigger-plugins). Please file issues and contribute there going forward.
+
 ## Install from release
 
 ```bash
